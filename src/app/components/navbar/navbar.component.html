@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menú</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links" [routerLink]="link.to" [routerLinkActive]="['bg-success', 'text-light', 'rounded-sm']">
+        <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+        <a mat-line>{{ link.text }}</a>
+      </mat-list-item>
+      <a href=""></a>  
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" role="navigation" aria-label="Barra superior">
+      <button
+        type="button"
+        aria-label="Abrir menú de navegación"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Icono de Menú">menu</mat-icon>
+      </button>
+      <span>Franco Hernández</span>
+    </mat-toolbar>
+    
+<ng-content select="[body]"></ng-content>
+<ng-content select="[footer]"></ng-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

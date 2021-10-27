@@ -1,0 +1,23 @@
+<mat-card class="w-100">
+    <mat-card-header>
+        <h1 mat-card-title>Sobre mí</h1>
+        <mat-card-subtitle>Soy Ingeniero en Sistemas Computacionales. Actualmente trabajo como Analista de Operaciones</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <h2 class="display-1">Tecnologías que conozco:</h2>
+        <mat-list>
+            <mat-list-item *ngFor="let tech of techs">
+                <h3 mat-line>{{ tech.tech }}</h3>
+                <p mat-line class="fw-bold">{{ tech.description }}</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-footer>
+        <h2>¿Quieres saber más de mis proyectos?</h2>
+        <p class="lead">Puedes revisarlos aquí:</p>
+        <mat-card-actions align="end">
+            <button [routerLink]="['portfolio']" mat-button color="accent">Ver Portafolio</button>
+            <button [routerLink]="['blog']" mat-button color="warn">Ver Blog</button>
+        </mat-card-actions>
+    </mat-card-footer>
+</mat-card>
