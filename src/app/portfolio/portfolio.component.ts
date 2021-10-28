@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent {
-  variable: Observable<Route[]> = this.staticRoutes.getPublishedRoutes('/portfolio/');
+  routes: Observable<Route[]> = this.staticRoutes.getPublishedRoutes('/portfolio');
   
   constructor(private staticRoutes: StaticRoutesService) { }
 }

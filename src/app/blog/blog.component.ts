@@ -1,19 +1,15 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router, ROUTES} from '@angular/router';
-
-declare var ng: any;
+import {Component} from '@angular/core';
+import { Observable } from 'rxjs';
+import { StaticRoutesService } from './../services/static-routes.service';
+import { Route } from '../models/route.nav';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
-  preserveWhitespaces: true,
-  encapsulation: ViewEncapsulation.Emulated
-
 })
-export class BlogComponent implements OnInit {
-  ngOnInit() {}
+export class BlogComponent {
+  routes: Observable<Route[]> = this.staticRoutes.getPublishedRoutes('/blog');
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private staticRoutes: StaticRoutesService) {
   }
 }
