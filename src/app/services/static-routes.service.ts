@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { ActivatedRoute } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Route } from './../models/route.nav';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StaticRoutesService {
-  constructor(private scullyService: ScullyRoutesService, private activatedRoute: ActivatedRoute) {}
+  constructor(private scullyService: ScullyRoutesService) {}
 
-  getRoute(start: string): Observable<Route | undefined> {
-return combineLatest([
-  this.activatedRoute.params.pipe(pluck('title')),
-  this.scullyService.available$
-]).pipe(
-  map(([title, routes]) => routes.find((route: Route) => route.route === `${start}/${title}`))
+  getRoute(start: string, title: string): Observable<Route | undefined> {
+return this.scullyService.available$.pipe(
+  map(routes => routes.find((route: Route) => route.route === `${start}/${title}`)),
 );
   }
 

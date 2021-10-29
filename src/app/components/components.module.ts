@@ -10,15 +10,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips'; 
+import { MatDividerModule } from '@angular/material/divider';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { CardsComponent } from './cards/cards.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, ErrorComponent, CardsComponent],
-  exports: [NavbarComponent, FooterComponent, CardsComponent],
+  declarations: [NavbarComponent, FooterComponent, ErrorComponent, CardsComponent, ArticleComponent],
+  exports: [NavbarComponent, FooterComponent, CardsComponent, ArticleComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -29,7 +31,8 @@ import { CardsComponent } from './cards/cards.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDividerModule
   ]
 })
 export class ComponentsModule { }
