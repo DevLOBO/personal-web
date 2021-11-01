@@ -1,3 +1,4 @@
+import { PostComponent } from './post/post.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
@@ -6,6 +7,10 @@ import {BlogComponent} from './blog.component';
 const routes: Routes = [
   {
     path: ':title',
+    component: PostComponent
+  },
+  {
+    path: '',
     component: BlogComponent,
   },
   {

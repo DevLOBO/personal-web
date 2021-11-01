@@ -1,3 +1,4 @@
+import { MetaService } from './../../services/meta.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,9 +17,11 @@ techs: any[] = [
   { tech: 'Selenium', description: 'Python' },
 ];
 
-  constructor() { }
+  constructor(private metaService: MetaService) { }
 
   ngOnInit(): void {
+    const title: string = 'Sobre mí', description: string = 'En esta página conocerás las tecnologías que he usado, que estoy aprendiendo y qué me gusta hacer en mi tiempo libre';
+    this.metaService.setMetadata(title, description);
   }
 
 }

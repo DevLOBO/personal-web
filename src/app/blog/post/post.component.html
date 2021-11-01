@@ -1,1 +1,16 @@
-<p>post works!</p>
+<article>
+    <mat-card>
+        <h1 mat-card-title>{{ (route | async)?.title }}</h1>
+        <mat-card-subtitle>Publicado el {{ (route | async)?.createdAt | date }}</mat-card-subtitle>
+        <mat-card-content>{{ (route | async)?.description }}</mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button>Compartir</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <scully-content></scully-content>
+    <mat-divider></mat-divider>
+    <mat-chip-list aria-label="Etiquetas" *ngIf="(route | async)?.tags">
+        <mat-chip *ngFor="let tag of (route | async)?.tags">{{ tag }}</mat-chip>
+    </mat-chip-list>
+</article>

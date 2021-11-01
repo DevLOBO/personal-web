@@ -1,3 +1,4 @@
+import { MetaService } from './../../services/meta.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  constructor(private metaService: MetaService) { }
 
   ngOnInit(): void {
+    const title: string = 'Bienvenido', description: string = 'Esta es mi página personal';
+    this.metaService.setMetadata(title, description)
   }
 
 }

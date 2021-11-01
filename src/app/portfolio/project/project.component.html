@@ -2,6 +2,7 @@
     <mat-card>
         <h1 mat-card-title>{{ (route | async)?.title }}</h1>
         <mat-card-subtitle>Publicado el {{ (route | async)?.createdAt | date }}</mat-card-subtitle>
+        <mat-card-content>{{ (route | async)?.description }}</mat-card-content>
         <mat-card-actions align="end">
             <button mat-button>Compartir</button>
         </mat-card-actions>
